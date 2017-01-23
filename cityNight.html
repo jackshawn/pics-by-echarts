@@ -3,14 +3,13 @@
     <head>
         <title>cityNight</title>
         <style type="text/css">
-            body {
-                background: rgb(27, 41, 51);
-            }
-            
             #con {
-                width: 1280px;
-                height: 750px;
-                margin: 0 auto;
+                position: absolute;
+                margin: auto;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
             }
         </style>
     </head>
@@ -122,6 +121,12 @@
                 })()
     
                 var option = {
+                    grid: {
+                        left: '0',
+                        right: '0',
+                        bottom: '0'
+                    },
+                    backgroundColor:'rgb(27, 41, 51)',
                     stack: true,
                     xAxis: {
                         data: [],
