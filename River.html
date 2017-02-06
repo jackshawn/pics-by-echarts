@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+    </title>
+    <style type="text/css">
+        #con {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+<div id="con"></div>
+<script src="echarts.js"></script>
+<script type="text/javascript">
+    var chart = echarts.init(document.getElementById('con'));
+    option = {
+        grid: {
+            left: '0',
+            right: '0',
+            bottom: '1%'
+        },
+        backgroundColor: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0, color: '#ccc'
+        }, {
+            offset: 1, color: '#e9af5a'
+        }], false),
+        // backgroundColor: new echarts.graphic.RadialGradient(0.5, 0.5,1, [{
+        //     offset: 0, color: '#ff7043'
+        // }, {
+        //     offset: 1, color: '#2196f3'
+        // }], false),
+        xAxis: [
+            {
+                boundaryGap: false,
+                data: new Array(15),
+                splitLine: {
+                    show: false
+                }
+                
+            }
+        ],
+        yAxis: [
+            {
+                min: 0,
+                max: 10,
+                type: 'value',
+                splitLine: {
+                    show: false
+                }
+                
+            }
+        ],
+        series: [
+
+            {
+                //mountain background
+                type: 'line',
+                areaStyle: {
+                    normal: {
+                        color: '#2a9c91',
+                        opacity: 0.4
+                    }
+                },
+                data: [4,4,5,5,6,6.5,6.7,6,4,4,4,4,4,4,4],
+                smooth: true,
+                smoothMonotone: 'x',
+                symbolSize: 0,
+                lineStyle: {
+                    normal: {
+                        width:0
+                    }
+                }
+            },
+            {
+                //mountain behind
+                type: 'line',
+                areaStyle: {
+                    normal: {
+                        color: '#2a9c91',
+                        opacity: 0.8
+                    }
+                },
+                data: [4,4,4,4,4,4,4,4,3,5,6,5.8,6,7,8],
+                smooth: true,
+                smoothMonotone: 'x',
+                symbolSize: 0,
+                lineStyle: {
+                    normal: {
+                        width:0
+                    }
+                }
+            },
+            {
+                //river behind
+                type: 'line',
+                areaStyle: {
+                    normal: {
+                        color: '#2dc3b5',
+                        opacity: 1
+                    }
+                },
+                data: [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],
+                smooth: true,
+                smoothMonotone: 'x',
+                symbolSize: 0,
+                lineStyle: {
+                    normal: {
+                        width:0
+                    }
+                }
+            },
+
+            {
+                //mountain left
+                type: 'line',
+                areaStyle: {
+                    normal: {
+                        color: '#0f6960',
+                        opacity: 1
+                    }
+                },
+                data: [7,6,6,6,5.8,5,4.8,4.4,0,0,0,0,0,0,0],
+                smooth: true,
+                smoothMonotone: 'x',
+                symbolSize: 0,
+                lineStyle: {
+                    normal: {
+                        width:0
+                    }
+                }
+            },
+            {
+                //river middle
+                type: 'line',
+                areaStyle: {
+                    normal: {
+                        color: '#2dc3b5',
+                        opacity: 1
+                    }
+                },
+                data: [2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8],
+                smooth: true,
+                smoothMonotone: 'x',
+                symbolSize: 0,
+                lineStyle: {
+                    normal: {
+                        width:0
+                    }
+                }
+            },
+
+            {
+                //mountain right
+                type: 'line',
+                areaStyle: {
+                    normal: {
+                        color: '#0f6960',
+                        opacity: 1
+                    }
+                },
+                data: [0,0,0,0,0,0,0,0,0,0,3,4,4.8,5,5.5],
+                smooth: true,
+                smoothMonotone: 'x',
+                symbolSize: 0,
+                lineStyle: {
+                    normal: {
+                        width:0
+                    }
+                }
+            },
+            {
+                //river front
+                type: 'line',
+                areaStyle: {
+                    normal: {
+                        color: '#2dc3b5',
+                        opacity: 0.8
+                    }
+                },
+                data: [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+                smooth: true,
+                smoothMonotone: 'x',
+                symbolSize: 0,
+                lineStyle: {
+                    normal: {
+                        width:0
+                    }
+                }
+            },
+
+
+            {
+                type: 'graph',
+                data: [
+                    {
+                        symbolSize: 0,
+                        x: 0,
+                        y: 0
+                    },
+                    {
+                        symbolSize: 0,
+                        x: 200,
+                        y: 100
+                    },
+                    //sun
+                    {
+                        symbolSize: 100,
+                        x: 130,
+                        y: 45
+                    }
+                ],
+                itemStyle: {
+                    normal: {
+                        color: '#ff5722',
+                        shadowColor: '#ff5722',
+                        shadowBlur: 100
+                    }
+                },
+                silent: true,
+                z: -2
+            },
+            {
+                //birds
+                type: 'graph',
+                data: [
+   
+                    {
+                        symbolSize: 0,
+                        x: 0,
+                        y: 0,
+                    },
+                    {
+                        symbolSize: 0,
+                        x: 200,
+                        y: 100,
+                    },
+                    {
+                        symbolSize: 0,
+                        x: 150,
+                        y: 70,
+                        name:'first-bird-left'
+                    },
+                    {
+                        symbolSize: 3,
+                        x: 155,
+                        y: 72,
+                        name:'first-bird'
+                    },
+                    {
+                        symbolSize: 0,
+                        x: 160,
+                        y: 70,
+                        name:'first-bird-right'
+                    }
+                ],
+
+                links:[
+                    {
+                        source:'first-bird-left',
+                        target:'first-bird'
+                    },
+                    {
+                        source:'first-bird',
+                        target:'first-bird-right'
+                    }
+                ],
+                lineStyle:{
+                    normal:{
+                        width: 1,
+                        curveness:0.3,
+                        color: '#333'
+                    }
+                },
+                itemStyle:{
+                    normal:{
+                        color: '#555'
+                    }
+                },
+                silent: true,
+                z: 2
+            }
+        ]
+    };
+    chart.setOption(option);
+</script>
+</body>
+</html>
