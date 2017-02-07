@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+    </title>
+    <style type="text/css">
+        #con {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+<div id="con"></div>
+<script src="echarts.js"></script>
+<script type="text/javascript">
+    var chart = echarts.init(document.getElementById('con'));
+    option = {
+        grid: {
+            left: '0',
+            right: '0',
+            bottom: '1%'
+        },
+        series: [
+            {
+                type: 'graph',
+                data: [
+                    //background box
+                    {
+                        symbolSize: 0,
+                        x: 0,
+                        y: 0,
+                        name: 'top-left'
+                    },
+                    {
+                        symbolSize: 0,
+                        x: 200,
+                        y: 0,
+                        name: 'top-right'
+                    },
+                    {
+                        symbolSize: 0,
+                        x: 200,
+                        y: 200,
+                        name: 'bottom-right'
+                    },
+                    {
+                        symbolSize: 0,
+                        x: 0,
+                        y: 200,
+                        name: 'bottom-left'
+                    },
+                    {
+                        symbolSize: 0,
+                        x: 34,
+                        y: 0,
+                        name: '1'
+                    },
+                    {
+                        symbolSize: 0,
+                        x: 50,
+                        y: 20,
+                        name: '2'
+                    },
+                    {
+                        symbolSize: 3,
+                        x: 50,
+                        y: 60,
+                        name: '3'
+                    },
+                    {
+                        symbolSize: 3,
+                        x: 5,
+                        y: 60,
+                        name: '4'
+                    },
+                    {
+                        symbolSize: 3,
+                        x: 10,
+                        y: 65,
+                        name: '5'
+                    },
+                    {
+                        symbolSize: 3,
+                        x: 47,
+                        y: 60,
+                        name: '6'
+                    },
+                    {
+                        symbolSize: 3,
+                        x: 30,
+                        y: 50,
+                        name: '7'
+                    },
+
+
+                ],
+                
+                links: [
+                    //box line
+                    {
+                        source: 'top-left',
+                        target: 'top-right'
+                    },
+                    {
+                        source: 'top-right',
+                        target: 'bottom-right'
+                    },
+                    {
+                        source: 'bottom-right',
+                        target: 'bottom-left'
+                    },
+                    {
+                        source: 'bottom-left',
+                        target: 'top-left'
+                    },
+                    
+                    
+                    {
+                        source: '1',
+                        target: '2',
+                        lineStyle: {
+                            normal: {
+                                curveness: -0.2
+                            }
+                        }
+                    },
+                    {
+                        source: '2',
+                        target: '3',
+                        lineStyle: {
+                            normal: {
+                                curveness: 0.5
+                            }
+                        }
+                    },
+                    {
+                        source: '2',
+                        target: '4',
+                        lineStyle: {
+                            normal: {
+                                curveness: 0.1
+                            }
+                        }
+                    },
+                    {
+                        source: '6',
+                        target: '7',
+                        lineStyle: {
+                            normal: {
+                                curveness: -2
+                            }
+                        }
+                    },
+
+                ],
+                lineStyle: {
+                    normal: {
+                        width: 2,
+                        curveness: 0,
+                        color: '#333'
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#555'
+                    }
+                },
+                silent: true,
+                z: 2
+            }
+        ]
+    };
+    chart.setOption(option);
+</script>
+</body>
+</html>
