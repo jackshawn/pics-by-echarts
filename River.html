@@ -26,16 +26,11 @@
             right: '0',
             bottom: '1%'
         },
-        backgroundColor: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-            offset: 0, color: '#ccc'
+        backgroundColor: new echarts.graphic.RadialGradient(0.6, 0.4, 1, [{
+            offset: 0, color: '#fe9e80'
         }, {
-            offset: 1, color: '#e9af5a'
+            offset: 1, color: '#9bc9f1'
         }], false),
-        // backgroundColor: new echarts.graphic.RadialGradient(0.5, 0.5,1, [{
-        //     offset: 0, color: '#ff7043'
-        // }, {
-        //     offset: 1, color: '#2196f3'
-        // }], false),
         xAxis: [
             {
                 boundaryGap: false,
@@ -58,7 +53,7 @@
             }
         ],
         series: [
-
+            
             {
                 //mountain background
                 type: 'line',
@@ -68,13 +63,13 @@
                         opacity: 0.4
                     }
                 },
-                data: [4,4,5,5,6,6.5,6.7,6,4,4,4,4,4,4,4],
+                data: [5, 5, 5, 6.1, 6.2, 6.3, 6.4, 6, 4, 4, 4, 4, 4, 4, 4],
                 smooth: true,
                 smoothMonotone: 'x',
                 symbolSize: 0,
                 lineStyle: {
                     normal: {
-                        width:0
+                        width: 0
                     }
                 }
             },
@@ -87,13 +82,13 @@
                         opacity: 0.8
                     }
                 },
-                data: [4,4,4,4,4,4,4,4,3,5,6,5.8,6,7,8],
+                data: [4, 4, 4, 4, 4, 4, 4, 4, 3, 5, 5.6, 6, 6.5, 7, 7.2],
                 smooth: true,
                 smoothMonotone: 'x',
                 symbolSize: 0,
                 lineStyle: {
                     normal: {
-                        width:0
+                        width: 0
                     }
                 }
             },
@@ -106,17 +101,17 @@
                         opacity: 1
                     }
                 },
-                data: [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],
+                data: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
                 smooth: true,
                 smoothMonotone: 'x',
                 symbolSize: 0,
                 lineStyle: {
                     normal: {
-                        width:0
+                        width: 0
                     }
                 }
             },
-
+            
             {
                 //mountain left
                 type: 'line',
@@ -126,13 +121,13 @@
                         opacity: 1
                     }
                 },
-                data: [7,6,6,6,5.8,5,4.8,4.4,0,0,0,0,0,0,0],
+                data: [6.5, 6, 6, 6, 5.8, 5.2, 4.8, 4.2, 2, 0, 0, 0, 0, 0, 0],
                 smooth: true,
                 smoothMonotone: 'x',
                 symbolSize: 0,
                 lineStyle: {
                     normal: {
-                        width:0
+                        width: 0
                     }
                 }
             },
@@ -145,17 +140,17 @@
                         opacity: 1
                     }
                 },
-                data: [2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8],
+                data: [2.8, 2.8, 2.8, 2.8, 2.8, 2.8, 2.8, 2.8, 2.8, 2.8, 2.8, 2.8, 2.8, 2.8, 2.8],
                 smooth: true,
                 smoothMonotone: 'x',
                 symbolSize: 0,
                 lineStyle: {
                     normal: {
-                        width:0
+                        width: 0
                     }
                 }
             },
-
+            
             {
                 //mountain right
                 type: 'line',
@@ -165,13 +160,13 @@
                         opacity: 1
                     }
                 },
-                data: [0,0,0,0,0,0,0,0,0,0,3,4,4.8,5,5.5],
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 4.8, 5, 5.5],
                 smooth: true,
                 smoothMonotone: 'x',
                 symbolSize: 0,
                 lineStyle: {
                     normal: {
-                        width:0
+                        width: 0
                     }
                 }
             },
@@ -184,18 +179,21 @@
                         opacity: 0.8
                     }
                 },
-                data: [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+                data: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
                 smooth: true,
                 smoothMonotone: 'x',
                 symbolSize: 0,
                 lineStyle: {
                     normal: {
-                        width:0
+                        width: 0
                     }
+                },
+                animationDelayUpdate: function (idx) {
+                    return idx * 5;
                 }
             },
-
-
+            
+            
             {
                 type: 'graph',
                 data: [
@@ -214,7 +212,7 @@
                         symbolSize: 100,
                         x: 130,
                         y: 45
-                    }
+                    },
                 ],
                 itemStyle: {
                     normal: {
@@ -224,13 +222,73 @@
                     }
                 },
                 silent: true,
-                z: -2
+                z: 1
+            },
+            {
+                type: 'graph',
+                data: [
+                    {
+                        symbolSize: 0,
+                        x: 0,
+                        y: 0
+                    },
+                    {
+                        symbolSize: 0,
+                        x: 200,
+                        y: 100
+                    },
+                    //sun shadow
+                    {
+                        symbolSize: 80,
+                        x: 130,
+                        y: 90
+                    }
+                ],
+                itemStyle: {
+                    normal: {
+                        color: '#ff5722',
+                        shadowColor: '#ff5722',
+                        shadowBlur: 100,
+                        opacity: 0.2
+                    }
+                },
+                silent: true,
+                z: 3
+            },
+            {
+                //boat
+                type: 'graph',
+                data: [
+                    {
+                        symbolSize: 0,
+                        x: 0,
+                        y: 0
+                    },
+                    {
+                        symbolSize: 0,
+                        x: 200,
+                        y: 100
+                    },
+                    {
+                        symbolSize: 35,
+                        x: 120,
+                        y: 78
+                    }
+                ],
+                itemStyle: {
+                    normal: {
+                        color: '#333',
+                    }
+                },
+                silent: true,
+                symbol: 'path://M27.310007,2.749997l22.5,0c-2.485281,0 -4.5,14.326891 -4.5,32.000002c0,17.673113 2.014718,32 4.5,32l-22.5,0l0,0c-2.485281,0 -4.5,-14.326889 -4.5,-32c0,-17.673111 2.014718,-32.000002 4.5,-32.000002z M12.75,70.184998l47,0l-11,10l-30,-1l-6,-9z',
+                z: 3
             },
             {
                 //birds
                 type: 'graph',
                 data: [
-   
+                    //bg
                     {
                         symbolSize: 0,
                         x: 0,
@@ -241,45 +299,102 @@
                         x: 200,
                         y: 100,
                     },
+                    //bird1
                     {
                         symbolSize: 0,
-                        x: 150,
-                        y: 70,
-                        name:'first-bird-left'
+                        x: 120,
+                        y: 50,
+                        name: 'first-bird-left'
                     },
                     {
                         symbolSize: 3,
-                        x: 155,
-                        y: 72,
-                        name:'first-bird'
+                        x: 125,
+                        y: 52,
+                        name: 'first-bird'
                     },
                     {
                         symbolSize: 0,
-                        x: 160,
-                        y: 70,
-                        name:'first-bird-right'
-                    }
-                ],
-
-                links:[
+                        x: 130,
+                        y: 50,
+                        name: 'first-bird-right'
+                    },
+                    //bird2
                     {
-                        source:'first-bird-left',
-                        target:'first-bird'
+                        symbolSize: 0,
+                        x: 110,
+                        y: 43,
+                        name: 'second-bird-left'
                     },
                     {
-                        source:'first-bird',
-                        target:'first-bird-right'
+                        symbolSize: 2,
+                        x: 115,
+                        y: 45,
+                        name: 'second-bird'
+                    },
+                    {
+                        symbolSize: 0,
+                        x: 120,
+                        y: 43,
+                        name: 'second-bird-right'
+                    },
+                    //bird3
+                    {
+                        symbolSize: 0,
+                        x: 112,
+                        y: 52,
+                        name: 'third-bird-left'
+                    },
+                    {
+                        symbolSize: 2,
+                        x: 115,
+                        y: 53,
+                        name: 'third-bird'
+                    },
+                    {
+                        symbolSize: 0,
+                        x: 118,
+                        y: 52,
+                        name: 'third-bird-right'
                     }
+                
+                
                 ],
-                lineStyle:{
-                    normal:{
+                
+                links: [
+                    {
+                        source: 'first-bird-left',
+                        target: 'first-bird'
+                    },
+                    {
+                        source: 'first-bird',
+                        target: 'first-bird-right'
+                    },
+                    {
+                        source: 'second-bird-left',
+                        target: 'second-bird'
+                    },
+                    {
+                        source: 'second-bird',
+                        target: 'second-bird-right'
+                    },
+                    {
+                        source: 'third-bird-left',
+                        target: 'third-bird'
+                    },
+                    {
+                        source: 'third-bird',
+                        target: 'third-bird-right'
+                    },
+                ],
+                lineStyle: {
+                    normal: {
                         width: 1,
-                        curveness:0.3,
+                        curveness: 0.3,
                         color: '#333'
                     }
                 },
-                itemStyle:{
-                    normal:{
+                itemStyle: {
+                    normal: {
                         color: '#555'
                     }
                 },
