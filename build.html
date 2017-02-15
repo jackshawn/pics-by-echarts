@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            body{
+                overflow: hidden;
+                font-size: 12px;
+            }
+            #bg{
+                position: absolute;
+                width: 2560px;
+                height: 1600px;
+                background: url(vaquita.png) no-repeat;
+                background-size: cover;
+                left: 50%;
+                top: 50%;
+                margin-left: -1280px;
+                margin-top: -800px;
+            }
+            #wrap{
+                width: 1000px;
+                height: 700px;
+                border: #ccc 2px solid;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-left: -500px;
+                margin-top: -392px;
+                
+            }
+            #log{
+                position: absolute;
+                padding: 10px;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: auto;
+                height: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="bg"></div>
+        <div id="log"></div>
+        <div id="wrap"></div>
+        <script>
+            var warp = document.getElementById('wrap'),
+                log = document.getElementById('log'),
+                n = 0;
+            warp.onclick = function (e) {
+                console.log(e.offsetX);
+                console.log(e.offsetY);
+                var x = e.offsetX,
+                    y = e.offsetY,
+                    dot = document.createElement('div');
+                dot.style.position = 'absolute';
+                dot.style.top = y + 'px';
+                dot.style.left = x + 'px';
+                dot.style.width = '2px';
+                dot.style.height = '2px';
+                dot.style.background = '#fff';
+                dot.innerText = 's' + n;
+
+                log.innerText += `{x:${x},y:${y},name:'s${n}'},\n`;
+                warp.appendChild(dot);
+                n++;
+            }
+        </script>
+    </body>
+</html>
