@@ -12,6 +12,7 @@ module.exports = {
 		rocket: './src/script/rocket.js',
 		flappyBird: './src/script/flappyBird.js',
 		waveLines: './src/script/waveLines.js',
+		lines3d: './src/script/lines3d.js',
 		echarts: 'echarts'
 	},
 	output: {
@@ -68,6 +69,11 @@ module.exports = {
 			template: 'template.html',
 			filename: 'html/waveLines.html',
 			chunks: ['manifest','echarts','waveLines']
+		}),
+		new htmlWebpackPlugin({
+			template: 'template.html',
+			filename: 'html/lines3d.html',
+			chunks: ['manifest','echarts','lines3d']
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			names: ['echarts', 'manifest']
