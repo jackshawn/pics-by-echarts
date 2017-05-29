@@ -13,6 +13,7 @@ module.exports = {
 		flappyBird: './src/script/flappyBird.js',
 		waveLines: './src/script/waveLines.js',
 		lines3d: './src/script/lines3d.js',
+		cityNight3d: './src/script/cityNight3d.js',
 		echarts: 'echarts'
 	},
 	output: {
@@ -74,6 +75,11 @@ module.exports = {
 			template: 'template.html',
 			filename: 'html/lines3d.html',
 			chunks: ['manifest','echarts','lines3d']
+		}),
+		new htmlWebpackPlugin({
+			template: 'template.html',
+			filename: 'html/cityNight3d.html',
+			chunks: ['manifest','echarts','cityNight3d']
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			names: ['echarts', 'manifest']
