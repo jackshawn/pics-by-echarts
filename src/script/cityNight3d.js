@@ -32,6 +32,9 @@ var option = {
 		splitLine: {
 			show: false
 		},
+		axisLabel: {
+			show: false
+		},
 		axisTick: {
 			show: false
 		},
@@ -48,10 +51,12 @@ var option = {
 		splitLine: {
 			show: false
 		},
+		axisLabel: {
+			show: false
+		},
 		axisTick: {
 			show: false
 		},
-		
 		axisLine: {
 			lineStyle: {
 				opacity: 0
@@ -63,6 +68,9 @@ var option = {
 		name: '',
 		show: false,
 		splitLine: {
+			show: false
+		},
+		axisLabel: {
 			show: false
 		},
 		axisTick: {
