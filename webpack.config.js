@@ -15,6 +15,8 @@ module.exports = {
 		lines3d: './src/script/lines3d.js',
 		cityNight3d: './src/script/cityNight3d.js',
 		volumeControl: './src/script/volumeControl.js',
+		lightning: './src/script/lightning.js',
+		index: './src/script/index.js',
 		echarts: 'echarts'
 	},
 	output: {
@@ -25,7 +27,7 @@ module.exports = {
 		new htmlWebpackPlugin({
 			template: 'index.html',
 			filename: 'index.html',
-			inject: false
+			chunks: ['manifest','echarts','index']
 		}),
 		new htmlWebpackPlugin({
 			template: 'template.html',
@@ -86,6 +88,11 @@ module.exports = {
 			template: 'template.html',
 			filename: 'html/volumeControl.html',
 			chunks: ['manifest','echarts','volumeControl']
+		}),
+		new htmlWebpackPlugin({
+			template: 'template.html',
+			filename: 'html/lightning.html',
+			chunks: ['manifest','echarts','lightning']
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			names: ['echarts', 'manifest']
