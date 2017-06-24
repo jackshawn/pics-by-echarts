@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/jackshawn/pics-by-echarts#readme",
   "dependencies": {
-    "curvejs": "^0.3.3",
     "echarts": "^3.6.1",
     "echarts-gl": "^1.0.0-alpha.5"
   },

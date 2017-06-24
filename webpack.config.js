@@ -16,7 +16,6 @@ module.exports = {
 		cityNight3d: './src/script/cityNight3d.js',
 		volumeControl: './src/script/volumeControl.js',
 		lightning: './src/script/lightning.js',
-		index: './src/script/index.js',
 		echarts: 'echarts'
 	},
 	output: {
@@ -27,7 +26,7 @@ module.exports = {
 		new htmlWebpackPlugin({
 			template: 'index.html',
 			filename: 'index.html',
-			chunks: ['manifest','echarts','index']
+			inject: false
 		}),
 		new htmlWebpackPlugin({
 			template: 'template.html',
