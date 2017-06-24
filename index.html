@@ -3,14 +3,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>pics-by-echarts</title>
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=2.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<style>
 		body {
+			overflow: hidden;
 			background: #000;
+			margin: 0;
+			padding: 0;
 		}
-		#myCanvas,#con {
-			width: 600px;
-			height: 200px;
-			margin: 0 auto;
+		#con{
+			position: absolute;
+			width: 100%;
+			height: 400px;
+			top: 50%;
+			margin-top: -200px;
 		}
 		p{
 			color: #ccc;
@@ -22,37 +30,100 @@
 			text-decoration: none;
 			display: inline-block;
 			border: 2px solid #ccc;
-			padding: 10px;
+			padding: 4px 6px;
 			margin: 10px;
 			border-radius: 5px;
+			font: bold 16px/1.5em ""
 		}
-		p.echarts{
-			font: bold 24px/1.5em ""
+		p a:hover{
+			color: #aa314d;
+			border: 2px solid #aa314d;
+			transition: all .5s
 		}
-		p.echarts:first-child{
-			font-size: 36px;
-			color: #aa314d
+		p.en{
+			font: bold 5em/1.5em 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
 		}
-
+		p.ch{
+			font: bold 2em/1.5em ""
+		}
+		p.btns{
+			width: 75%;
+			margin: 10px auto;
+		}
+		#bg-video{
+			position: absolute;
+			z-index: -99;
+			width: auto;
+		}
+		#cover{
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+			background: RGBA(255,255,255,.5);
+			display: none;
+			align-items: center;
+		}
+		#cover p{
+			width: 100%;
+			text-align: center;
+		}
 	</style>
 </head>
 <body>
-<p class="echarts" >ECHARTS</p>
-<p class="echarts">的</p>
+<video id="bg-video" src="video.mp4" autoplay loop></video>
 <div id="con">
-	<canvas id="myCanvas"></canvas>
+	<p class="en" >PICS BY <span style="color: #aa314d">ECHARTS</span></p>
+	<p class="ch" >echarts的一些不正经用法</p>
+	<br>
+	<br>
+	<p class="btns">
+		<a target="_blank" href="html/river.html">孤帆远影</a>
+		<a target="_blank" href="html/cityNight.html">都市楼宇</a>
+		<a target="_blank" href="html/suck.html">S U C K</a>
+		<a target="_blank" href="html/lowPolyAnimals.html">低多边形动物</a>
+		<a target="_blank" href="html/pyramid.html">金字塔</a>
+		<a target="_blank" href="html/movies.html">热门电影</a>
+		<a target="_blank" href="html/rocket.html">rocket</a>
+		<a target="_blank" href="html/flappyBird.html">flappyBird</a>
+		<a target="_blank" href="html/waveLines.html">waveLines</a>
+		<a target="_blank" href="html/cityNight3d.html">都市楼宇3d</a>
+		<a target="_blank" href="html/volumeControl.html">音量控制</a>
+	</p>
 </div>
-<p class="echarts">用法</p>
-<p><a target="_blank" href="html/river.html">孤帆远影</a></p>
-<p><a target="_blank" href="html/cityNight.html">都市楼宇</a></p>
-<p><a target="_blank" href="html/suck.html">S U C K</a></p>
-<p><a target="_blank" href="html/lowPolyAnimals.html">低多边形动物</a></p>
-<p><a target="_blank" href="html/pyramid.html">金字塔</a></p>
-<p><a target="_blank" href="html/movies.html">热门电影</a></p>
-<p><a target="_blank" href="html/rocket.html">rocket</a></p>
-<p><a target="_blank" href="html/flappyBird.html">flappyBird</a></p>
-<p><a target="_blank" href="html/waveLines.html">waveLines</a></p>
-<p><a target="_blank" href="html/cityNight3d.html">都市楼宇3d</a></p>
-<p><a target="_blank" href="html/volumeControl.html">音量控制</a></p>
+<div id="cover">
+	<p>旋转设备，获取更好体验</p>
+</div>
+<script>
+	var setVideoStyle = function () {
+		var video = document.getElementById('bg-video');
+		video.style.height = innerHeight + 'px';
+		video.style.left = (innerWidth - innerHeight/720*1280)/2 + 'px';
+		console.log(video.offsetWidth)
+	}
+	var checkDevice = function () {
+		console.log('changed')
+		var u = navigator.userAgent;
+		if(u.indexOf('iPhone')>-1 || u.indexOf('iPad')>-1 || u.indexOf('Android')>-1){
+
+			if(innerHeight>innerWidth){
+				console.log(u)
+				document.getElementById('bg-video').style.display = 'none'
+				document.getElementById('con').style.display = 'none'
+				document.getElementById('cover').style.display = 'flex'
+			}else{
+				document.getElementById('bg-video').style.display = 'block'
+				document.getElementById('con').style.display = 'block'
+				document.getElementById('cover').style.display = 'none'
+			}
+		}
+	}
+	checkDevice()
+	setVideoStyle();
+	window.addEventListener('orientationchange',checkDevice,false);
+	window.onresize = setVideoStyle
+</script>
 </body>
 </html>
