@@ -1,5 +1,10 @@
-require('../style/style.css')
-var echarts = require('echarts')
+webpackJsonp([13],{
+
+/***/ 662:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(59)
+var echarts = __webpack_require__(46)
 var myChart = echarts.init(document.getElementById('main'));
 
 option = {
@@ -427,3 +432,7 @@ option = {
 	}]
 };
 myChart.setOption(option);
+
+/***/ })
+
+},[662]);

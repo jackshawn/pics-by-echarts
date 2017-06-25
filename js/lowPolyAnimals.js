@@ -1,9 +1,20 @@
-webpackJsonp([5],{
+webpackJsonp([10],{
 
-/***/ 432:
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
-var myChart = __webpack_require__(8)
+__webpack_require__(59)
+var echarts = __webpack_require__(46)
+var myChart = echarts.init(document.getElementById('main'));
+
+module.exports = myChart
+
+/***/ }),
+
+/***/ 659:
+/***/ (function(module, exports, __webpack_require__) {
+
+var myChart = __webpack_require__(16)
 
 var bear = {
 	nodes: [
@@ -687,17 +698,6 @@ myChart.on('click', function (params) {
 });
 
 
-/***/ }),
-
-/***/ 8:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(26)
-var echarts = __webpack_require__(21)
-var myChart = echarts.init(document.getElementById('main'));
-
-module.exports = myChart
-
 /***/ })
 
-},[432]);
+},[659]);

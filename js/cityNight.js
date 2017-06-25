@@ -1,9 +1,20 @@
-webpackJsonp([7],{
+webpackJsonp([12],{
 
-/***/ 430:
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
-var myChart = __webpack_require__(8)
+__webpack_require__(59)
+var echarts = __webpack_require__(46)
+var myChart = echarts.init(document.getElementById('main'));
+
+module.exports = myChart
+
+/***/ }),
+
+/***/ 654:
+/***/ (function(module, exports, __webpack_require__) {
+
+var myChart = __webpack_require__(16)
 
 var r = function(max) {
 	var m = max || 10;
@@ -193,17 +204,6 @@ setInterval(function () {
 	myChart.setOption(option);
 },10000)
 
-/***/ }),
-
-/***/ 8:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(26)
-var echarts = __webpack_require__(21)
-var myChart = echarts.init(document.getElementById('main'));
-
-module.exports = myChart
-
 /***/ })
 
-},[430]);
+},[654]);

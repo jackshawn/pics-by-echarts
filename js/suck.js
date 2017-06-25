@@ -1,4 +1,20 @@
-var myChart = require('./common')
+webpackJsonp([6],{
+
+/***/ 16:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(59)
+var echarts = __webpack_require__(46)
+var myChart = echarts.init(document.getElementById('main'));
+
+module.exports = myChart
+
+/***/ }),
+
+/***/ 664:
+/***/ (function(module, exports, __webpack_require__) {
+
+var myChart = __webpack_require__(16)
 
 var cup = 'E';//A-E
 option = {
@@ -420,3 +436,7 @@ option = {
 	]
 };
 myChart.setOption(option);
+
+/***/ })
+
+},[664]);

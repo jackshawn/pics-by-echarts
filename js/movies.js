@@ -1,29 +1,32 @@
-webpackJsonp([4],{
+webpackJsonp([9],{
 
-/***/ 433:
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
-var myChart = __webpack_require__(8)
-var ajax = function (option) {
-	var request = new XMLHttpRequest();
-	request.open(option.type||'GET', option.url);
-	request.send();
-	request.onreadystatechange = function() {
-		if (request.readyState===4) {
-			if (request.status===200) {
-				var data = JSON.parse(request.responseText);
-				if (data) {
-					option.callback(data)
-				}
-			} else {
-				console.log('发生错误：' + request.status);
-			}
-		}
-	}
+__webpack_require__(59)
+var echarts = __webpack_require__(46)
+var myChart = echarts.init(document.getElementById('main'));
+
+module.exports = myChart
+
+/***/ }),
+
+/***/ 660:
+/***/ (function(module, exports, __webpack_require__) {
+
+var myChart = __webpack_require__(16)
+
+var ajax = function (url,cbfn) {
+	window.myAjaxCallbackFn = cbfn
+	var script = document.createElement('script')
+	script.setAttribute('type','text/javascript')
+	script.src = url+'?callback=myAjaxCallbackFn';
+	document.body.appendChild(script);
 }
+
 myChart.showLoading();
 
-var setData = (function() {
+ajax('http://api.douban.com/v2/movie/in_theaters',function (d) {
 	var option = {
 		title: {
 			text: '最近上映电影',
@@ -92,9 +95,8 @@ var setData = (function() {
 		}]
 	};
 	var mark = 1;
-	return function() {
+	var setData =  function() {
 		var pics = [];
-		var d = JSON.parse(localStorage.getItem('data'));
 		for (var i = 0; i < d.subjects.length; i++) {
 			pics.push({
 				value: ((d.subjects[i].rating.average || 0.1) - 10).toFixed(1),
@@ -114,36 +116,15 @@ var setData = (function() {
 		myChart.setOption(option);
 		mark++;
 	}
-})();
-if (localStorage.getItem('data')) {
-	setData();
-} else {
-	ajax({
-		type: "GET",
-		url: "http://api.douban.com/v2/movie/in_theaters",
-		callback: function(d) {
-			localStorage.data = JSON.stringify(d);
+	setData()
+	myChart.on('click', function(params) {
+		if (params.name == 'btn') {
 			setData();
 		}
-	});
-}
-myChart.on('click', function(params) {
-	if (params.name == 'btn') {
-		setData();
-	}
+	})
 })
 
-/***/ }),
-
-/***/ 8:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(26)
-var echarts = __webpack_require__(21)
-var myChart = echarts.init(document.getElementById('main'));
-
-module.exports = myChart
 
 /***/ })
 
-},[433]);
+},[660]);

@@ -1,9 +1,20 @@
-webpackJsonp([6],{
+webpackJsonp([11],{
 
-/***/ 431:
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
-var myChart = __webpack_require__(8)
+__webpack_require__(59)
+var echarts = __webpack_require__(46)
+var myChart = echarts.init(document.getElementById('main'));
+
+module.exports = myChart
+
+/***/ }),
+
+/***/ 656:
+/***/ (function(module, exports, __webpack_require__) {
+
+var myChart = __webpack_require__(16)
 
 var bird = 'image://https://raw.githubusercontent.com/jackshawn/pics-by-echarts/master/bird0_1.png';
 
@@ -420,17 +431,6 @@ document.onkeydown = function (event) {
 	}
 }
 
-/***/ }),
-
-/***/ 8:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(26)
-var echarts = __webpack_require__(21)
-var myChart = echarts.init(document.getElementById('main'));
-
-module.exports = myChart
-
 /***/ })
 
-},[431]);
+},[656]);
