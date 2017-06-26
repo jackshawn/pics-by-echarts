@@ -76,8 +76,8 @@
 <video id="bg-video" src="video.mp4" autoplay loop></video>
 <div id="con">
 	<p class="en" >PICS BY <span style="color: #aa314d">ECHARTS</span></p>
-	<br>
 	<p class="ch" >echarts的一些不正经用法</p>
+	<br>
 	<br>
 	<p class="btns">
 		<a target="_blank" href="html/river.html">孤帆远影</a>
@@ -94,36 +94,46 @@
 	</p>
 </div>
 <div id="cover">
-	<p>旋转设备，获取更好体验</p>
+	<p>旋转设备，横屏浏览获取更好体验</p>
 </div>
 <script>
-	var setVideoStyle = function () {
-		var video = document.getElementById('bg-video');
-		video.style.height = innerHeight + 'px';
-		video.style.left = (innerWidth - innerHeight/720*1280)/2 + 'px';
-		console.log(video.offsetWidth)
-	}
-	var checkDevice = function () {
-		console.log('changed')
-		var u = navigator.userAgent;
-		if(u.indexOf('iPhone')>-1 || u.indexOf('iPad')>-1 || u.indexOf('Android')>-1){
-
-			if(innerHeight>innerWidth){
-				console.log(u)
-				document.getElementById('bg-video').style.display = 'none'
-				document.getElementById('con').style.display = 'none'
-				document.getElementById('cover').style.display = 'flex'
-			}else{
-				document.getElementById('bg-video').style.display = 'block'
-				document.getElementById('con').style.display = 'block'
-				document.getElementById('cover').style.display = 'none'
+	(function () {
+		var con = document.getElementById('con'),
+			cover = document.getElementById('cover'),
+		    video = document.getElementById('bg-video');
+		var setVideoStyle = function () {
+			var p = 720 / 1280;
+			//屏幕更宽
+			if (innerHeight / innerWidth < p) {
+				video.style.width = innerWidth + 'px';
+				video.style.top = (innerHeight - innerWidth * p) / 2 + 'px';
+			} else {
+				video.style.width = innerHeight / p + 'px';
+				video.style.left = (innerWidth - innerHeight / p) / 2 + 'px';
 			}
 		}
-	}
-	checkDevice()
-	setVideoStyle();
-	window.addEventListener('orientationchange',checkDevice,false);
-	window.onresize = setVideoStyle
+		var checkDevice = function () {
+			var u = navigator.userAgent;
+			if (u.indexOf('iPhone') > -1 || u.indexOf('iPad') > -1 || u.indexOf('Android') > -1) {
+				setTimeout(function () {
+					if (innerHeight > innerWidth) {
+						video.style.display = 'none'
+						con.style.display = 'none'
+						cover.style.display = 'flex'
+					} else {
+						video.style.display = 'block'
+						con.style.display = 'block'
+						cover.style.display = 'none'
+					}
+					video.play();
+				},10)
+			}
+		}
+		checkDevice()
+		setVideoStyle();
+		window.addEventListener('orientationchange', checkDevice, false);
+		window.addEventListener('resize', setVideoStyle, false);
+	})()
 </script>
 </body>
 </html>
