@@ -31,7 +31,7 @@
 			display: inline-block;
 			border: 2px solid #ccc;
 			padding: 4px 6px;
-			margin: 10px;
+			margin: 5px;
 			border-radius: 5px;
 			font: bold 16px/1.5em ""
 		}
@@ -70,6 +70,26 @@
 			width: 100%;
 			text-align: center;
 		}
+		#play-btn{
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			top: 50%;
+			left: 50%;
+			margin-top: -25px;
+			margin-left: -25px;
+			z-index: 99
+		}
+		@media (max-height: 500px){
+			#con{
+				height: 300px;
+				margin-top: -150px;
+			}
+
+			p.en{
+				font-size: 3em
+			}
+		}
 	</style>
 </head>
 <body>
@@ -94,36 +114,42 @@
 	</p>
 </div>
 <div id="cover">
-	<p>旋转设备，获取更好体验</p>
+	<p>旋转设备，横屏浏览获取更好体验</p>
 </div>
+<div id="play-btn"></div>
 <script>
-	var setVideoStyle = function () {
-		var video = document.getElementById('bg-video');
-		video.style.height = innerHeight + 'px';
-		video.style.left = (innerWidth - innerHeight/720*1280)/2 + 'px';
-		console.log(video.offsetWidth)
-	}
-	var checkDevice = function () {
-		console.log('changed')
-		var u = navigator.userAgent;
-		if(u.indexOf('iPhone')>-1 || u.indexOf('iPad')>-1 || u.indexOf('Android')>-1){
-
-			if(innerHeight>innerWidth){
-				console.log(u)
-				document.getElementById('bg-video').style.display = 'none'
-				document.getElementById('con').style.display = 'none'
-				document.getElementById('cover').style.display = 'flex'
-			}else{
-				document.getElementById('bg-video').style.display = 'block'
-				document.getElementById('con').style.display = 'block'
-				document.getElementById('cover').style.display = 'none'
+	(function () {
+		var con = document.getElementById('con'),
+			cover = document.getElementById('cover'),
+		    video = document.getElementById('bg-video'),
+		    p = 720 / 1280,
+		    u = navigator.userAgent;
+		var setVideoStyle = function () {
+			//屏幕更宽
+			if (innerHeight / innerWidth < p) {
+				video.style.width = innerWidth + 'px';
+				video.style.top = (innerHeight - innerWidth * p) / 2 + 'px';
+			} else {
+				video.style.width = innerHeight / p + 'px';
+				video.style.left = (innerWidth - innerHeight / p) / 2 + 'px';
 			}
 		}
-	}
-	checkDevice()
-	setVideoStyle();
-	window.addEventListener('orientationchange',checkDevice,false);
-	window.onresize = setVideoStyle
+		if (u.indexOf('iPhone') > -1 || u.indexOf('iPad') > -1 || u.indexOf('Android') > -1) {
+			if (innerHeight > innerWidth) {
+				video.style.display = 'none'
+				con.style.display = 'none'
+				cover.style.display = 'flex'
+			} else {
+				video.style.display = 'block'
+				con.style.display = 'block'
+				cover.style.display = 'none'
+			}	
+		}
+		setVideoStyle()
+		window.addEventListener('orientationchange', function(){location.reload()}, false);
+		window.addEventListener('resize', setVideoStyle, false);
+		document.getElementById('play-btn').onclick = function(){video.play()}
+	})()
 </script>
 </body>
 </html>
