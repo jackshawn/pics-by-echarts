@@ -1,6 +1,6 @@
 var myChart = require('./common')
 
-var bird = 'image://https://raw.githubusercontent.com/jackshawn/pics-by-echarts/master/bird0_1.png';
+var bird = 'image://https://raw.githubusercontent.com/jackshawn/pics-by-echarts/master/img/bird.png';
 
 var option = {
 	title: {
