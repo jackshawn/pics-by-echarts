@@ -1,102 +1,58 @@
 var path = require('path')
 var webpack = require('webpack')
 var htmlWebpackPlugin = require('html-webpack-plugin')
+var fs = require('fs')
+var join = require('path').join
+
+// 获取js文件名
+var findSync = function(startPath) {
+    let result = [];
+    let files = fs.readdirSync(startPath);
+    files.forEach((val, index) => {
+        let fPath = join(startPath, val);
+        let stats = fs.statSync(fPath);
+        if(stats.isFile() && val !== 'common.js') {
+            result.push(val.substr(0, val.length - 3));
+        }
+    });
+    return result;
+}
+let pages = findSync('src/script/');
+
 module.exports = {
-	entry: {
-		cityNight: './src/script/cityNight.js',
-		river: './src/script/river.js',
-		suck: './src/script/suck.js',
-		lowPolyAnimals: './src/script/lowPolyAnimals.js',
-		pyramid: './src/script/pyramid.js',
-		movies: './src/script/movies.js',
-		rocket: './src/script/rocket.js',
-		flappyBird: './src/script/flappyBird.js',
-		waveLines: './src/script/waveLines.js',
-		lines3d: './src/script/lines3d.js',
-		cityNight3d: './src/script/cityNight3d.js',
-		volumeControl: './src/script/volumeControl.js',
-		lightning: './src/script/lightning.js',
-		echarts: 'echarts'
-	},
+	entry: (function() {
+		var result = {
+			echarts: 'echarts'
+		}
+		pages.forEach(function(i) {
+			result[i] = './src/script/' + i + '.js'
+        })
+		return result
+    })(),
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'js/[name].js'
 	},
-	plugins: [
-		new htmlWebpackPlugin({
-			template: 'index.html',
-			filename: 'index.html',
-			inject: false
-		}),
-		new htmlWebpackPlugin({
-			template: 'template.html',
-			filename: 'html/cityNight.html',
-			chunks: ['manifest','echarts','cityNight']
-		}),
-		new htmlWebpackPlugin({
-			template: 'template.html',
-			filename: 'html/river.html',
-			chunks: ['manifest','echarts','river']
-		}),
-		new htmlWebpackPlugin({
-			template: 'template.html',
-			filename: 'html/suck.html',
-			chunks: ['manifest','echarts','suck']
-		}),
-		new htmlWebpackPlugin({
-			template: 'template.html',
-			filename: 'html/lowPolyAnimals.html',
-			chunks: ['manifest','echarts','lowPolyAnimals']
-		}),
-		new htmlWebpackPlugin({
-			template: 'template.html',
-			filename: 'html/pyramid.html',
-			chunks: ['manifest','echarts','pyramid']
-		}),
-		new htmlWebpackPlugin({
-			template: 'template.html',
-			filename: 'html/movies.html',
-			chunks: ['manifest','echarts','movies']
-		}),
-		new htmlWebpackPlugin({
-			template: 'template.html',
-			filename: 'html/rocket.html',
-			chunks: ['manifest','echarts','rocket']
-		}),
-		new htmlWebpackPlugin({
-			template: 'template.html',
-			filename: 'html/flappyBird.html',
-			chunks: ['manifest','echarts','flappyBird']
-		}),
-		new htmlWebpackPlugin({
-			template: 'template.html',
-			filename: 'html/waveLines.html',
-			chunks: ['manifest','echarts','waveLines']
-		}),
-		new htmlWebpackPlugin({
-			template: 'template.html',
-			filename: 'html/lines3d.html',
-			chunks: ['manifest','echarts','lines3d']
-		}),
-		new htmlWebpackPlugin({
-			template: 'template.html',
-			filename: 'html/cityNight3d.html',
-			chunks: ['manifest','echarts','cityNight3d']
-		}),
-		new htmlWebpackPlugin({
-			template: 'template.html',
-			filename: 'html/volumeControl.html',
-			chunks: ['manifest','echarts','volumeControl']
-		}),
-		new htmlWebpackPlugin({
-			template: 'template.html',
-			filename: 'html/lightning.html',
-			chunks: ['manifest','echarts','lightning']
-		}),
-		new webpack.optimize.CommonsChunkPlugin({
-			names: ['echarts', 'manifest']
-		})
-	],
+    plugins: (function() {
+		var result = [
+            new htmlWebpackPlugin({
+                template: 'index.html',
+                filename: 'index.html',
+                inject: false
+            }),
+            new webpack.optimize.CommonsChunkPlugin({
+                names: ['echarts', 'manifest']
+            })
+		]
+        pages.forEach(function(i) {
+            result.push(new htmlWebpackPlugin({
+                template: 'template.html',
+                filename: 'html/' + i + '.html',
+                chunks: ['manifest','echarts', i]
+            }))
+        })
+        return result
+    })(),
 	module: {
 		rules: [
 			{
@@ -114,6 +70,7 @@ module.exports = {
 	},
 	devServer: {
 		port: 8080,
-		disableHostCheck: true
+		disableHostCheck: true,
+		open: true
 	}
 }
