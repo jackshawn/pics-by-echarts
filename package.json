@@ -19,8 +19,8 @@
   },
   "homepage": "https://github.com/jackshawn/pics-by-echarts#readme",
   "dependencies": {
-    "echarts": "^3.6.1",
-    "echarts-gl": "^1.0.0-alpha.5"
+    "echarts": "^4.1.0",
+    "echarts-gl": "^1.1.1"
   },
   "devDependencies": {
     "webpack": "^2.5.1",
