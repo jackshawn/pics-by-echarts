@@ -103,9 +103,10 @@ var building2 = (function() {
 
 var option = {
 	grid: {
-		left: '0',
+		left: -10,
 		right: '0',
-		bottom: '0'
+		bottom: '0',
+		top: '0'
 	},
 	backgroundColor:'rgb(27, 41, 51)',
 	stack: true,
@@ -119,7 +120,8 @@ var option = {
 	yAxis: {
 		splitLine: {
 			show: false
-		}
+		},
+		max: 200
 	},
 	series: [
 		moonAndStars,

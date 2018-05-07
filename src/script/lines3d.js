@@ -1,5 +1,7 @@
-var myChart = require('./common')
+require('../style/style.css')
+var echarts = require('echarts')
 require('echarts-gl');
+var myChart = echarts.init(document.getElementById('main'));
 var node = []
 
 for (var i = 0; i < 10; i++) {

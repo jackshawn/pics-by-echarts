@@ -33,8 +33,6 @@ var option = {
 			type: 'line',
 			data: data0,
 			symbolSize: 0,
-			smooth: true,
-			smoothMonotone: true,
 			lineStyle:{
 				normal:{
 					width: 1,
@@ -46,8 +44,6 @@ var option = {
 			type: 'line',
 			data: data1,
 			symbolSize: 0,
-			smooth: true,
-			smoothMonotone: true,
 			animationDelay:100,
 			lineStyle:{
 				normal:{
@@ -60,8 +56,6 @@ var option = {
 			type: 'line',
 			data: data2,
 			symbolSize: 0,
-			smooth: true,
-			smoothMonotone: true,
 			animationDelay:200,
 			lineStyle:{
 				normal:{
@@ -74,8 +68,6 @@ var option = {
 			type: 'line',
 			data: data3,
 			symbolSize: 0,
-			smooth: true,
-			smoothMonotone: true,
 			animationDelay:400,
 			lineStyle:{
 				normal:{
