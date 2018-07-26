@@ -1,20 +1,9 @@
-webpackJsonp([4],{
+webpackJsonp([1],{
 
-/***/ 16:
+/***/ 506:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(59)
-var echarts = __webpack_require__(46)
-var myChart = echarts.init(document.getElementById('main'));
-
-module.exports = myChart
-
-/***/ }),
-
-/***/ 666:
-/***/ (function(module, exports, __webpack_require__) {
-
-var myChart = __webpack_require__(16)
+var myChart = __webpack_require__(6)
 
 var data0 = [];
 var data1 = [];
@@ -49,8 +38,6 @@ var option = {
 			type: 'line',
 			data: data0,
 			symbolSize: 0,
-			smooth: true,
-			smoothMonotone: true,
 			lineStyle:{
 				normal:{
 					width: 1,
@@ -62,8 +49,6 @@ var option = {
 			type: 'line',
 			data: data1,
 			symbolSize: 0,
-			smooth: true,
-			smoothMonotone: true,
 			animationDelay:100,
 			lineStyle:{
 				normal:{
@@ -76,8 +61,6 @@ var option = {
 			type: 'line',
 			data: data2,
 			symbolSize: 0,
-			smooth: true,
-			smoothMonotone: true,
 			animationDelay:200,
 			lineStyle:{
 				normal:{
@@ -90,8 +73,6 @@ var option = {
 			type: 'line',
 			data: data3,
 			symbolSize: 0,
-			smooth: true,
-			smoothMonotone: true,
 			animationDelay:400,
 			lineStyle:{
 				normal:{
@@ -107,6 +88,17 @@ var option = {
 myChart.setOption(option);
 
 
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(17)
+var echarts = __webpack_require__(12)
+var myChart = echarts.init(document.getElementById('main'));
+
+module.exports = myChart
+
 /***/ })
 
-},[666]);
+},[506]);

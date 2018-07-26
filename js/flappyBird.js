@@ -1,22 +1,11 @@
-webpackJsonp([11],{
+webpackJsonp([10],{
 
-/***/ 16:
+/***/ 495:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(59)
-var echarts = __webpack_require__(46)
-var myChart = echarts.init(document.getElementById('main'));
+var myChart = __webpack_require__(6)
 
-module.exports = myChart
-
-/***/ }),
-
-/***/ 656:
-/***/ (function(module, exports, __webpack_require__) {
-
-var myChart = __webpack_require__(16)
-
-var bird = 'image://https://raw.githubusercontent.com/jackshawn/pics-by-echarts/master/bird0_1.png';
+var bird = 'image://https://raw.githubusercontent.com/jackshawn/pics-by-echarts/master/img/bird.png';
 
 var option = {
 	title: {
@@ -431,6 +420,17 @@ document.onkeydown = function (event) {
 	}
 }
 
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(17)
+var echarts = __webpack_require__(12)
+var myChart = echarts.init(document.getElementById('main'));
+
+module.exports = myChart
+
 /***/ })
 
-},[656]);
+},[495]);

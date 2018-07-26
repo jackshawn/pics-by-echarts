@@ -1,20 +1,9 @@
-webpackJsonp([9],{
+webpackJsonp([6],{
 
-/***/ 16:
+/***/ 500:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(59)
-var echarts = __webpack_require__(46)
-var myChart = echarts.init(document.getElementById('main'));
-
-module.exports = myChart
-
-/***/ }),
-
-/***/ 660:
-/***/ (function(module, exports, __webpack_require__) {
-
-var myChart = __webpack_require__(16)
+var myChart = __webpack_require__(6)
 
 var ajax = function (url,cbfn) {
 	window.myAjaxCallbackFn = cbfn
@@ -100,7 +89,7 @@ ajax('http://api.douban.com/v2/movie/in_theaters',function (d) {
 		for (var i = 0; i < d.subjects.length; i++) {
 			pics.push({
 				value: ((d.subjects[i].rating.average || 0.1) - 10).toFixed(1),
-				symbol: 'image://' + d.subjects[i].images.small,
+				symbol: 'image://http://img3' + d.subjects[i].images.small.substr(11),
 				symbolSize: ['48.75', '75'],
 				name: d.subjects[i].title
 			})
@@ -125,6 +114,17 @@ ajax('http://api.douban.com/v2/movie/in_theaters',function (d) {
 })
 
 
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(17)
+var echarts = __webpack_require__(12)
+var myChart = echarts.init(document.getElementById('main'));
+
+module.exports = myChart
+
 /***/ })
 
-},[660]);
+},[500]);

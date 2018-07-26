@@ -1,20 +1,9 @@
-webpackJsonp([12],{
+webpackJsonp([11],{
 
-/***/ 16:
+/***/ 493:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(59)
-var echarts = __webpack_require__(46)
-var myChart = echarts.init(document.getElementById('main'));
-
-module.exports = myChart
-
-/***/ }),
-
-/***/ 654:
-/***/ (function(module, exports, __webpack_require__) {
-
-var myChart = __webpack_require__(16)
+var myChart = __webpack_require__(6)
 
 var r = function(max) {
 	var m = max || 10;
@@ -119,9 +108,10 @@ var building2 = (function() {
 
 var option = {
 	grid: {
-		left: '0',
+		left: -10,
 		right: '0',
-		bottom: '0'
+		bottom: '0',
+		top: '0'
 	},
 	backgroundColor:'rgb(27, 41, 51)',
 	stack: true,
@@ -135,7 +125,8 @@ var option = {
 	yAxis: {
 		splitLine: {
 			show: false
-		}
+		},
+		max: 200
 	},
 	series: [
 		moonAndStars,
@@ -204,6 +195,17 @@ setInterval(function () {
 	myChart.setOption(option);
 },10000)
 
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(17)
+var echarts = __webpack_require__(12)
+var myChart = echarts.init(document.getElementById('main'));
+
+module.exports = myChart
+
 /***/ })
 
-},[654]);
+},[493]);

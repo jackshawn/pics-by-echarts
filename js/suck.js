@@ -1,20 +1,9 @@
-webpackJsonp([6],{
+webpackJsonp([3],{
 
-/***/ 16:
+/***/ 504:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(59)
-var echarts = __webpack_require__(46)
-var myChart = echarts.init(document.getElementById('main'));
-
-module.exports = myChart
-
-/***/ }),
-
-/***/ 664:
-/***/ (function(module, exports, __webpack_require__) {
-
-var myChart = __webpack_require__(16)
+var myChart = __webpack_require__(6)
 
 var cup = 'E';//A-E
 option = {
@@ -437,6 +426,17 @@ option = {
 };
 myChart.setOption(option);
 
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(17)
+var echarts = __webpack_require__(12)
+var myChart = echarts.init(document.getElementById('main'));
+
+module.exports = myChart
+
 /***/ })
 
-},[664]);
+},[504]);
