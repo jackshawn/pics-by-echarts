@@ -84,7 +84,7 @@ ajax('http://api.douban.com/v2/movie/in_theaters',function (d) {
 		for (var i = 0; i < d.subjects.length; i++) {
 			pics.push({
 				value: ((d.subjects[i].rating.average || 0.1) - 10).toFixed(1),
-				symbol: 'image://' + d.subjects[i].images.small,
+				symbol: 'image://http://img3' + d.subjects[i].images.small.substr(11),
 				symbolSize: ['48.75', '75'],
 				name: d.subjects[i].title
 			})
