@@ -91,6 +91,9 @@ npm start
 
 ![](img/wave-lines.png)
 
+* star trails
+
+![](img/star-trails.png)
 ---
 
 最后欢迎大家star, 有作品也欢迎PR
