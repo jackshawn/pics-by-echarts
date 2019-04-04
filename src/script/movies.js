@@ -10,7 +10,7 @@ var ajax = function (url,cbfn) {
 
 myChart.showLoading();
 
-ajax('http://api.douban.com/v2/movie/in_theaters',function (d) {
+ajax('https://api.douban.com/v2/movie/in_theaters',function (d) {
 	var option = {
 		title: {
 			text: '最近上映电影',
@@ -84,7 +84,7 @@ ajax('http://api.douban.com/v2/movie/in_theaters',function (d) {
 		for (var i = 0; i < d.subjects.length; i++) {
 			pics.push({
 				value: ((d.subjects[i].rating.average || 0.1) - 10).toFixed(1),
-				symbol: 'image://http://img3' + d.subjects[i].images.small.substr(11),
+				symbol: 'image://https://images.weserv.nl/?url=' + d.subjects[i].images.small,
 				symbolSize: ['48.75', '75'],
 				name: d.subjects[i].title
 			})
