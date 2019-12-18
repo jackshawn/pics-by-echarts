@@ -94,6 +94,10 @@ npm start
 * star trails
 
 ![](img/star-trails.png)
+
+* windows copy
+
+![](img/windows-copy.png)
 ---
 
 最后欢迎大家star, 有作品也欢迎PR
