@@ -23,9 +23,9 @@
     "echarts-gl": "^1.1.1"
   },
   "devDependencies": {
-    "webpack": "^2.5.1",
+    "webpack": "^5.75.0",
     "css-loader": "^0.27.3",
-    "html-webpack-plugin": "^2.28.0",
+    "html-webpack-plugin": "^5.5.0",
     "style-loader": "^0.16.1",
     "webpack-dev-server": "^2.11.2"
   }
